@@ -23,6 +23,8 @@ dc_logs:
 dc_down:
 	docker-compose -f ./docker/docker-compose.yml down -v --rmi=all --remove-orphans
 
+dc_migrate:
+	docker-compose -f ./docker/docker-compose.yml exec -u www-data php-fpm php bin/console doctrine:migrations:migrate --no-interaction
 
 ##################
 # App
